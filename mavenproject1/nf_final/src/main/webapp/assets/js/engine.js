@@ -6,8 +6,6 @@ setUrl('/signin','login');
 
 $(document).ready(function () {
   if (sessionStorage.login) {
-    $('[id=logout]').show();
-    $('[id=registro]').hide();
     var usuario = sessionStorage.getItem('nombre');
     $('.nombre').text('hola '+usuario);
   } else {
@@ -41,23 +39,6 @@ function setUrl(url,element) {
 
 function hola(msg){
 //    alert(msg);
-}
-
-function login() {
-  var usuario = $("[id=name]").val();
-  var password = $("[id=pass]").val();
-  if (localStorage.getItem(usuario) == password) {
-    sessionStorage.setItem('nombre',usuario);
-    sessionStorage.setItem('login','1');
-    location.reload();
-  } else {
-    alert('Password incorrecto');
-  }
-}
-
-function loginout() {
-  sessionStorage.clear();
-  location.reload();
 }
 
 function loadContent(element) {
