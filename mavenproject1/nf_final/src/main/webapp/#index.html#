@@ -110,8 +110,8 @@
             <div class="main main-raised">
                 <div class="section section-basic">
                     <div class="container">
-			<div>
-			    Mejores Imágenes
+			<div class="title">
+			    <h2>Mejores Imágenes</h2>
 			</div>
 			<div>contenido random</div>
                     </div>
