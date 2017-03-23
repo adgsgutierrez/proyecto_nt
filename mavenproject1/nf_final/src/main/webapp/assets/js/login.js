@@ -7,7 +7,7 @@ function login() {
 	sessionStorage.setItem('login','1');
 	location.reload();
     } else {
-	alert('Password incorrecto');
+	//alert('Password incorrecto');
     }
 }
 
@@ -18,18 +18,19 @@ function loginout() {
 
 function auth(usuario, password){
     $.ajax({
-	url : 'http://localhost:8080/nf_final/services/login/',
+	url : '/nf_final/services/usuario/login?usuario='+encodeURIComponent(usuario)+"&clave="+encodeURIComponent(password),
 	data : { 'usuario' : usuario, 'clave' : password },
 	type : 'POST',
 	dataType : 'json',
 	success : function(json) {
+            console.log(json);
 	    alert('success');
 	},
 	error : function(xhr, status) {
-            alert('Disculpe, existió un problema');
+            alert('Disculpe, existiï¿½ un problema');
 	},
 	complete : function(xhr, status) {
-            alert('Petición realizada');
+            alert('Peticiï¿½n realizada');
 	}
     });
 }
