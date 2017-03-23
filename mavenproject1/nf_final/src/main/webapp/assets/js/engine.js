@@ -5,17 +5,18 @@ setUrl('/compras','buy');
 setUrl('/signin','login');
 
 $(document).ready(function () {
-  if (sessionStorage.login) {
-    var usuario = sessionStorage.getItem('nombre');
-    $('.nombre').text('hola '+usuario);
-  } else {
-    if (window.localStorage.length > 0) {
-       $('.nombre').text(usuario.value);
+    if (sessionStorage.login) {
+	var usuario = sessionStorage.getItem('nombre');
+	loadContent('homePage');
+	$('.nombre').text('hola '+usuario);
     } else {
-	//window.location='#/signin.html';
-	loadContent('singin');
+	if (window.localStorage.length > 0) {
+	    $('.nombre').text(usuario.value);
+	} else {
+	    //window.location='#/signin.html';
+	    loadContent('singin');
+	}
     }
-  }
 });
 
 function uriManager() {
@@ -27,6 +28,8 @@ function uriManager() {
 	    hola(uri);
 	case 'buy':
 	    hola('>>'+uri);
+	default:
+	    loadContent('homePage');
 	}
     } else {
 	loadContent(ruta.element);
