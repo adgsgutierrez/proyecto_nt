@@ -2,7 +2,7 @@ var path = {};
 setUrl('/','hello');
 setUrl('/home','index');
 setUrl('/compras','buy');
-setUrl('/sigin','login');
+setUrl('/signin','login');
 
 $(document).ready(function () {
   if (sessionStorage.login) {
@@ -29,9 +29,10 @@ function uriManager() {
 	    hola(uri);
 	case 'buy':
 	    hola('>>'+uri);
-	}	
+	}
     } else {
-	window.location = '#/signin.html';
+	loadContent(ruta.element);
+	window.location = '#/signin';
     }
 }
 function setUrl(url,element) {
@@ -39,7 +40,7 @@ function setUrl(url,element) {
 }
 
 function hola(msg){
-    alert(msg);
+//    alert(msg);
 }
 
 function login() {
@@ -60,7 +61,7 @@ function loginout() {
 }
 
 function loadContent(element) {
-    alert('cargando... ' + element);
+    $('div#contenido').load('./../../nf_final/pages/'+element+'.html');
 }
 
 window.addEventListener('hashchange',uriManager);
