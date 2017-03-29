@@ -1,0 +1,94 @@
+form {
+    position: absolute;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px 1px rgba(199, 174, 174, 0.7);
+    left: 25%;
+    top: 25%;
+}
+form > label{
+    color: #0288D1;
+    font-family: 'Indie Flower', cursive;
+    font-size: medium;
+}
+input{
+    width: 100%;
+    border: none;
+    height: 20px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: rgba(255, 0, 0, 0);
+}
+input:focus::-webkit-input-placeholder{
+    color:    rgba(255, 0, 0, 0);
+}
+input:focus::-moz-placeholder{
+    color:    rgba(255, 0, 0, 0);
+}
+input::-webkit-input-placeholder{
+    font-family: 'Indie Flower', cursive;
+    font-size: medium;
+    color: #0288D1;
+}
+input::-moz-placeholder{
+    color: #0288D1;
+    font-family: 'Indie Flower', cursive;
+    font-size: medium;
+}
+form > button {
+    margin-left: 25%;
+    width: 200px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 17px;
+    font-family: 'Indie Flower', cursive;
+    font-size: medium;
+    background-color: #0288D1;
+    color:white;
+}
+form > h2 {
+    color: #0288D1;
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+}
+
+@keyframes slidy {
+0% { left: 0%; }
+20% { left: 0%; }
+25% { left: -100%; }
+45% { left: -100%; }
+50% { left: -200%; }
+70% { left: -200%; }
+75% { left: -300%; }
+95% { left: -300%; }
+100% { left: -400%; }
+}
+
+body { 
+    margin: 0; 
+} 
+div#slider{ 
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+div#slider figure img { 
+    width: 20%; 
+    float: left; 
+}
+
+div#slider figure { 
+  position: relative;
+  width: 500%;
+  height: 100%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite; 
+}
