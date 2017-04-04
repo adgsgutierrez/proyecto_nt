@@ -1,7 +1,7 @@
 var path = {};
 setUrl('/','hello');
 setUrl('/home','index');
-setUrl('/compras','buy');
+setUrl('/compras','payCard');
 setUrl('/signin','login');
 
 $(document).ready(function () {
@@ -14,7 +14,7 @@ $(document).ready(function () {
 	    $('.nombre').text(usuario.value);
 	} else {
 	    //window.location='#/signin.html';
-	    loadContent('singin');
+	    loadContent('payCard');
 	}
     }
 });
@@ -27,13 +27,13 @@ function uriManager() {
 	case 'index':
 	    hola(uri);
 	case 'buy':
-	    hola('>>'+uri);
+	    loadContent('Cards');
 	default:
 	    loadContent('homePage');
 	}
     } else {
 	loadContent(ruta.element);
-	window.location = '#/signin';
+	window.location = '#/compras';
     }
 }
 function setUrl(url,element) {
