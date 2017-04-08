@@ -6,13 +6,8 @@ function login() {
 	$('#base').addClass('main');
 	loadContent('homePage');
     } else {
-	location.reload();
+//	location.reload();
     }
-}
-
-function loginout() {
-    sessionStorage.clear();
-    location.reload();
 }
 
 function auth(usuario, password) {
@@ -35,11 +30,11 @@ function auth(usuario, password) {
 		sessionStorage.setItem('id',datos.id);
 		sessionStorage.setItem('clave',datos.clave);
 	    } else {
-		alert(json.message);
+		console.log(json.message);
 	    }
 	},
 	error : function(xhr, status) {
-            alert('Disculpe, existi� un problema');
+            console.log('Disculpe, existi� un problema');
 	},
 	complete: function(xhr, status) {
 	    console.log(status);
