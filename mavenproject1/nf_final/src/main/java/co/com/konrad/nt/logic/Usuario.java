@@ -137,4 +137,34 @@ public class Usuario {
          }
         return response;
     }
+    /**
+     * Metodo para el historico del usuario
+     * @param nombre_usuario : es el correo que se retorna en el inicio de sesion
+     * @param clave : es la clave que se retorna en el inicio de sesion
+     * @param nombre_completo : nombre del usuario
+     * @return Objeto de tipo ResponseNt, en donde el campo Data: se encuentra un arrayList de tipo HistoricoDTO
+     **/
+    public ResponseNT crear_contacto(String nombre_usuario , String clave , String nombre_completo){
+        ResponseNT response = new ResponseNT();
+        response.setCode(Constant.CODE_ERROR_GENERAL);
+        response.setMessage(Constant.SMS_ERROR_GENERAL);
+        response.setData(null);
+        if(Utils.crear_usuario(nombre_usuario , clave , nombre_completo)){
+            conexion = new ConecctionDB();
+            if(!conexion.insert(UsuarioSqlConstantes.crear_contacto(nombre_usuario, clave, nombre_completo))){
+                response.setCode(Constant.CODE_SUCCESS);
+                response.setMessage(Constant.SMS_SUCCESS);
+                response.setData(null);
+            }else{
+                response.setCode(Constant.CODE_NOT_ADD_USER);
+                response.setMessage(Constant.SMS_NOT_ADD_USER);
+                response.setData(null);
+            }
+        }else{
+            response.setCode(Constant.CODE_NOT_ADD_USER);
+            response.setMessage(Constant.SMS_NOT_ADD_USER);
+            response.setData(null);
+        }
+        return response;
+    }
 }

@@ -15,4 +15,8 @@ public class UsuarioSqlConstantes {
         return "SELECT * FROM usuario WHERE usuario.usuario_correo = '"+usuario+"' AND usuario_clave = '"+clave+"'";
     }
     
+    public static String crear_contacto(String correo , String clave , String nombre){
+        return "INSERT usuario (usuario_correo , usuario_clave , usuario_nombre , usuario_avatar) VALUES "
+                + "('"+correo+"','"+clave+"','"+nombre+"','img/default.jpg')";
+    }
 }

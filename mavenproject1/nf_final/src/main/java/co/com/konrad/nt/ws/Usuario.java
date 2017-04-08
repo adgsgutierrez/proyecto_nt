@@ -61,4 +61,15 @@ public class Usuario {
         ResponseNT respuesta = this.usuario.agregar_tarjeta(id_usuario, numero , fecha , pago);
         return this.gson.toJson(respuesta);
     }
+    @POST
+    @Path("registrar")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String registrar(@QueryParam("correo") String usuario ,
+                            @QueryParam("clave") String clave, 
+                            @QueryParam("nombre") String nombre_completo){
+        
+        this.usuario = new co.com.konrad.nt.logic.Usuario();
+        ResponseNT respuesta = this.usuario.crear_contacto(usuario, clave , nombre_completo );
+        return this.gson.toJson(respuesta);
+    }
 }

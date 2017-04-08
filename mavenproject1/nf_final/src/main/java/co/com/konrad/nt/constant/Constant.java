@@ -20,5 +20,8 @@ public class Constant {
         
         public static final String CODE_NOT_CREDIT_ADD = "06";
         public static final String SMS_NOT_CREDIT_ADD = "No se logró adicionar esta tarjeta.";
+        
+        public static final String CODE_NOT_ADD_USER = "07";
+        public static final String SMS_NOT_ADD_USER = "No se pudo crear el usuario, se presentó un error.";
 	
 }

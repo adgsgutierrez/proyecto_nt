@@ -14,7 +14,8 @@ public class TestServices {
 		Usuario usuario;
 		Gson gson = new Gson();
 		usuario = new Usuario();
-		ResponseNT respuesta = usuario.iniciar_sesion("porlando@gmail.com","123456");
+		//ResponseNT respuesta = usuario.iniciar_sesion("porlando@gmail.com","123456");
+                ResponseNT respuesta = usuario.crear_contacto("prueba@gmail.com","123456","Usuario Prueba");
 		System.out.println(gson.toJson(respuesta)); 
 	}
 

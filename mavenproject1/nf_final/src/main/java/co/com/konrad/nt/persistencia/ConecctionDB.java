@@ -53,6 +53,7 @@ public class ConecctionDB {
     }
     
     public Boolean insert(String Consulta) {
+        System.out.println(Consulta);
         Boolean resultado = Boolean.FALSE;
         Statement st;
         try {
