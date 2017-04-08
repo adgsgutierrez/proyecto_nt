@@ -3,12 +3,17 @@ package co.com.konrad.nt.logic;
 import co.com.konrad.nt.dto.ResponseNT;
 import co.com.konrad.nt.dto.UsuarioDTO;
 import co.com.konrad.nt.constant.Constant;
-import co.com.konrad.nt.constant.HistoricoConstant;
-import co.com.konrad.nt.constant.UsuarioConstant;
+import co.com.konrad.nt.persistencia.ConecctionDB;
+import co.com.konrad.nt.persistencia.UsuarioSqlConstantes;
+import co.com.konrad.nt.utils.Utils;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import java.util.ArrayList;
 
 public class Usuario {
 
+    private ConecctionDB conexion ;
     public Usuario() {
     }
     /**
@@ -24,22 +29,33 @@ public class Usuario {
         response.setCode(Constant.CODE_ERROR_GENERAL);
         response.setMessage(Constant.SMS_ERROR_GENERAL);
         response.setData(null);
-        for (UsuarioDTO user : UsuarioConstant.list_users()) {
-            if (usuario.equals(user.getCorreo())) {
-                flag = Boolean.TRUE;
-                if (user.getClave().equals(clave)) {
+        if(Utils.validar_inicio(usuario,clave)){
+            try{
+                conexion = new ConecctionDB();
+                ResultSet resultado;
+                resultado = conexion.search(UsuarioSqlConstantes.iniciar_sesion(usuario,clave));
+                while(resultado.next()){
+                    UsuarioDTO user = new UsuarioDTO();
+                    user.setId(resultado.getInt("usuario_id"));
+                    user.setNombre(resultado.getString("usuario_nombre"));
+                    user.setCorreo(resultado.getString("usuario_correo"));
+                    user.setAvatar(resultado.getString("usuario_avatar"));
                     response.setCode(Constant.CODE_SUCCESS);
                     response.setMessage(Constant.SMS_SUCCESS);
                     response.setData(user);
-                    break;
-                } else {
+                }
+                if(response.getData() == null){
                     response.setCode(Constant.CODE_ERROR_PWD_USER);
                     response.setMessage(Constant.SMS_ERROR_PWD_USER);
                     response.setData(null);
                 }
+            }catch(SQLException ex){
+                System.out.println("Error SQL "+ex.getSQLState());
+                response.setCode(Constant.CODE_ERROR_USER_NOT_EXIST);
+                response.setMessage(Constant.SMS_ERROR_USER_NOT_EXIST);
+                response.setData(null);
             }
-        }
-        if (!flag) {
+        }else{
             response.setCode(Constant.CODE_ERROR_USER_NOT_EXIST);
             response.setMessage(Constant.SMS_ERROR_USER_NOT_EXIST);
             response.setData(null);
@@ -57,8 +73,8 @@ public class Usuario {
         response.setCode(Constant.CODE_ERROR_GENERAL);
         response.setMessage(Constant.SMS_ERROR_GENERAL);
         response.setData(null);
-        ArrayList historico = HistoricoConstant.getHistorial(usuario);
-        if (!historico.isEmpty()) {
+       // ArrayList historico = HistoricoConstant.getHistorial(usuario);
+        /*if (!historico.isEmpty()) {
             response.setCode(Constant.CODE_SUCCESS);
             response.setMessage(Constant.SMS_SUCCESS);
             response.setData(historico);
@@ -66,7 +82,7 @@ public class Usuario {
             response.setCode(Constant.CODE_HISTORY_NO_FOUND);
             response.setMessage(Constant.SMS_HISTORY_NO_FOUND);
             response.setData(null);        
-         }
+         }*/
         return response;
     }
     /**
