@@ -18,22 +18,19 @@ function auth(usuario, password) {
 	dataType : 'json',
 	success : function(json) {
 	    if (json.code == 00){
-		let datos = json.data;
+		var datos = json.data;
 		sessionStorage.setItem('login','1');
 		sessionStorage.setItem('nombre',datos.nombre);
 		sessionStorage.setItem('apellido',datos.apellido);
 		sessionStorage.setItem('correo',datos.correo);
-		sessionStorage.setItem('notificaciones',datos.notificaciones);
 		sessionStorage.setItem('ruta_avatar',datos.ruta_avatar);
-		sessionStorage.setItem('tarjetas',datos.tarjetas);
-		sessionStorage.setItem('telefono',datos.telefono);
 		sessionStorage.setItem('id',datos.id);
-		sessionStorage.setItem('clave',datos.clave);
 	    } else {
 		console.log(json.message);
 	    }
 	},
 	error : function(xhr, status) {
+            console.log(xhr);
             console.log('Disculpe, existi� un problema');
 	},
 	complete: function(xhr, status) {

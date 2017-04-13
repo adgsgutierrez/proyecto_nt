@@ -1,0 +1,199 @@
+/** HEAD PAGE **/
+body{
+  font-family: 'Macondo', cursive;
+}
+.header-page{
+  border: 0px solid rgba(0, 0, 255, 0.27);
+  width: 100%;
+  height: 60px;
+  background: rgba(0, 0, 255, 0.68);
+  position: fixed;
+  z-index: 100;
+}
+#logo{
+  height: 100%;
+  padding-left: 36px;
+  float: left;
+}
+#logo:hover{
+  cursor:pointer;
+}
+
+#logo > img {
+  height: 100%;
+}
+a:link{
+ text-decoration:none;
+}
+.search{
+  float: left;
+  width: 50%;
+  margin-left: 10%;
+  border-bottom-color: white !important;
+  height: 30px;
+  background: rgba(210, 105, 30, 0);
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  color: white !important;
+  font-family: 'Macondo', cursive;
+  padding-left: 10px;
+}
+
+#buscador:focus{
+	outline:0px;
+  font-size: 25px;
+  border-bottom: 2px solid #4CAF50;
+}
+#buscador::-webkit-input-placeholder {
+  color: white;
+  font-family: 'Macondo', cursive;
+}
+#buscador::-moz-placeholder {
+  color: white;
+  font-family: 'Macondo', cursive;
+}
+#buscador:-ms-input-placeholder {
+  color: white;
+  font-family: 'Macondo', cursive;
+}
+#buscador:-moz-placeholder {
+  color: white;
+  font-family: 'Macondo', cursive;
+}
+
+.registrarse{
+  float: right;
+  height: 80%;
+  width: 100px;
+  text-align: center;
+  padding-top: 20px;
+  margin-right: 15px;
+  margin-left: 15px;
+  color: white;
+}
+.ingresar{
+  height: 80%;
+  width: 100px;
+  float: right;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-align: center;
+  padding-top: 20px;
+  color: white;
+}
+.registrarse:hover{
+  background: #4CAF50;
+  color:white;
+  cursor:pointer;
+}
+.ingresar:hover{
+  background: #4CAF50;
+  color:white;
+  cursor:pointer;
+}
+
+/** CAROUSEL **/
+
+
+@keyframes slidy {
+0% { left: 0%; }
+20% { left: 0%; }
+25% { left: -100%; }
+45% { left: -100%; }
+50% { left: -200%; }
+70% { left: -200%; }
+75% { left: -300%; }
+95% { left: -300%; }
+100% { left: -400%; }
+}
+
+body {
+    margin: 0;
+}
+div#slider{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+div#slider figure img {
+    width: 20%;
+    float: left;
+}
+
+div#slider figure {
+  position: relative;
+  width: 500%;
+  height: 100%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite;
+}
+/*** FORMULARIO REGISTRO / INICIO SESION ***/
+#formularioRegistro {
+    position: absolute;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px 1px rgba(199, 174, 174, 0.7);
+    left: 25%;
+    top: 25%;
+}
+#formularioRegistro > label{
+    color: #0288D1;
+    font-family: 'Macondo', cursive;
+    font-size: medium;
+}
+#formularioRegistro > button {
+    margin-left: 30%;
+    width: 200px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 17px;
+    font-family: 'Macondo', cursive;
+    font-size: medium;
+    background-color: #4CAF50;
+    color:white;
+}
+#formularioRegistro > h2 {
+    color: #0288D1;
+    font-family: 'Macondo', cursive;
+    text-align: center;
+    font-size: 17px !important;
+}
+button:focus{
+  outline:0px;
+}
+input{
+  width: 95%;
+  border: 0px solid;
+  background: rgba(255, 0, 0, 0);
+  border-bottom: 1px solid blue;
+  margin: 0px;
+  padding: 10px;
+}
+input:focus::-webkit-input-placeholder{
+    color:    rgba(255, 0, 0, 0);
+}
+input:focus::-moz-placeholder{
+    color:    rgba(255, 0, 0, 0);
+}
+input::-webkit-input-placeholder{
+    font-family: 'Macondo', cursive;
+    font-size: medium;
+    color: #0288D1;
+}
+input::-moz-placeholder{
+    color: #0288D1;
+    font-family: 'Macondo', cursive;
+    font-size: medium;
+}
+input:focus{
+  border-bottom: 2px solid #4CAF50;
+  outline:0px;
+}

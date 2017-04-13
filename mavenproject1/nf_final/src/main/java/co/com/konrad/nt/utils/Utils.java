@@ -30,6 +30,9 @@ public class Utils {
     }
     
     public static Boolean crear_usuario(String usuario , String clave , String nombre){
+        System.out.println("Usuario "+usuario);
+        System.out.println("Clave "+clave);
+        System.out.println("Nombre "+nombre);
         Matcher userMatcher = VALID_EMAIL_ADDRESS_REGEX.matcher(usuario); 
         Matcher pwdMatcher = VALID_PWD_REGEX.matcher(clave);
         Matcher nameMatcher = VALID_NOMBRE_REGEX.matcher(nombre);

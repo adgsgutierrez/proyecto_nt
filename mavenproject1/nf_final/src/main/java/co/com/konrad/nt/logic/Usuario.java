@@ -151,7 +151,7 @@ public class Usuario {
         response.setData(null);
         if(Utils.crear_usuario(nombre_usuario , clave , nombre_completo)){
             conexion = new ConecctionDB();
-            if(!conexion.insert(UsuarioSqlConstantes.crear_contacto(nombre_usuario, clave, nombre_completo))){
+            if(conexion.insert(UsuarioSqlConstantes.crear_contacto(nombre_usuario, clave, nombre_completo))){
                 response.setCode(Constant.CODE_SUCCESS);
                 response.setMessage(Constant.SMS_SUCCESS);
                 response.setData(null);
