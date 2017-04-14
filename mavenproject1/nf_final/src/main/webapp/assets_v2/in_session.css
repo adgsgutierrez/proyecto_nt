@@ -1,0 +1,74 @@
+.menu{
+  position: absolute;
+  width: 20%;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 1px 1px rgba(199, 174, 174, 0.7);
+  /* left: 24%; */
+  top: 10%;
+  cursor:pointer;
+  right: 1%;
+  z-index: 500;
+}
+.menu > div {
+  width: 100%;
+  height: 20px;
+  padding: 5px;
+}
+.menu > div:hover {
+  background: rgba(0, 0, 255, 0.9);
+  color: white !important;
+}
+
+.contenido{
+  position: absolute;
+  width: 93%;
+  background-color: rgba(255, 255, 255, 0.78);
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 1px 1px rgba(199, 174, 174, 0.7);
+  left: 2%;
+  top: 25%;
+}
+.contenido > div {
+  padding-left: 15%;
+}
+.contenido > div > img {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+.contenido > div > img:hover {
+  width: 115px;
+  height: 115px;
+  margin: 10px;
+}
+.zooming{
+  background: rgba(16, 16, 21, 0.85);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+  z-index: 100;
+}
+.zooming > img{
+  top: 10%;
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  -webkit-box-shadow: 0px 0px 33px 1px rgba(255,255,255,1);
+  -moz-box-shadow: 0px 0px 33px 1px rgba(255,255,255,1);
+  box-shadow: 0px 0px 33px 1px rgba(255,255,255,1);
+}
+
+.title{
+  position: absolute;
+  top: 14%;
+  left: 40%;
+  font-size: 38px;
+  font-style: inherit;
+  color: white;
+}
