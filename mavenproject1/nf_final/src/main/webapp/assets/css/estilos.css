@@ -64,7 +64,7 @@ article {
     margin: 5px;
 }
 
-form {
+.row {
     position: absolute;
     width: 50%;
     background-color: rgba(255, 255, 255, 0.95);
@@ -74,7 +74,7 @@ form {
     left: 25%;
     top: 25%;
 }
-form > label{
+.row > label{
     color: #0288D1;
     font-family: 'Indie Flower', cursive;
     font-size: medium;
@@ -105,7 +105,7 @@ input::-moz-placeholder{
     font-family: 'Indie Flower', cursive;
     font-size: medium;
 }
-form > button {
+.row > button {
     margin-left: 25%;
     width: 200px;
     height: 35px;
@@ -117,7 +117,7 @@ form > button {
     background-color: #0288D1;
     color:white;
 }
-form > h2 {
+.row > h2 {
     color: #0288D1;
     font-family: 'Indie Flower', cursive;
     text-align: center;

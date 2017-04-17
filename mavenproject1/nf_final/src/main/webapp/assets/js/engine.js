@@ -1,18 +1,23 @@
 var path = {};
 setUrl('/','homePage');
-setUrl('/home','homePage');
+//setUrl('/home','homePage');
 setUrl('/compras','payCard');
 setUrl('/signin','login');
 setUrl('/registry','registry');
+setUrl('/gallery','gallery');
 
 $(document).ready(function () {
+    displayMenu();
+});
+
+function displayMenu () {
     if (sessionStorage.login) {
 	var usuario = sessionStorage.getItem('nombre');
 	loadContent('homePage');
 	$('[id=p]').show();
 	$('[id=s]').show();
 	$('[id=r]').hide();
-	$('.nombre').text('hola '+usuario);
+//	$('.nombre').text('hola '+usuario);
     } else {
 	if (window.localStorage.length > 0) {
 	    $('[id=p]').show();
@@ -26,10 +31,7 @@ $(document).ready(function () {
 	    loadContent('login');
 	}
     }
-    $.each(function() {
-	
-    });
-});
+}
 
 function uriManager() {
     var uri = location.hash.slice(1) || '/';
@@ -39,15 +41,16 @@ function uriManager() {
 	case 'homePage':
 	    loadContent('homePage');
 	case 'buy':
-	    loadContent('Cards');
+	    loadContent('payCard');
 	case 'registry':
 	    loadContent('registry');
+	case 'gallery':
+	    loadContent('gallery');
 	default:
 	    loadContent('login');
 	}
     } else {
 	loadContent(ruta.element);
-//	window.location = '#/signin';
     }
 }
 function setUrl(url,element) {
@@ -55,7 +58,7 @@ function setUrl(url,element) {
 }
 
 function index(){
-    loadContent('homePage');
+    loadContent('gallery');
 }
 
 function registry() {

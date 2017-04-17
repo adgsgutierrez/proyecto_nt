@@ -35,6 +35,8 @@ function auth(usuario, password) {
 	},
 	complete: function(xhr, status) {
 	    console.log(status);
+	    loadContent('homePage');
+	    displayMenu();
 	}
     });
 }
