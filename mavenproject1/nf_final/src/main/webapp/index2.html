@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link href="assets_v2/in_session.css" rel="stylesheet">
+	<title>TRIMAGE</title>
+	<link href="https://fonts.googleapis.com/css?family=Macondo" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href="assets_v2/index.css" rel="stylesheet">
+
+	<script src="lib/style/in_session.js"></script>
+    </head>
+    <body>
+	<section class="header-page">
+	    <a id="logo" href="index_v2.html">
+		<img src="assets/img/favicon.png">
+	    </a>
+	    <input id="buscador" class="search" placeholder="Busca aquí">
+	    <a class="ingresar" href="ingresar.html">
+		Ingresa
+	    </a>
+	    <a class="registrarse" href="registrarse.html">
+		Regístrate
+	    </a>
+	</section>
+	<div id="slider">
+	    <figure>
+		<img src="assets/img/bg2.jpeg" alt>
+		<img src="assets/img/bg3.jpeg" alt>
+		<img src="assets/img/bg2.jpeg" alt>
+		<img src="assets/img/bg4.jpeg" alt>
+	    </figure>
+	</div>
+	<!-- <div id="formularioRegistro"> -->
+	    <label>Recorre nuestras las im&aacute;genes</label>
+	    <div class="contenido">
+		<div>
+		    <img id="img1" onclick="zoom_in('bodega/img_1.jpg')" src="bodega/img_1.jpg" class="thumbnail marco"/>
+		    <img id="img2" onclick="zoom_in('bodega/img_2.jpg')" src="bodega/img_2.jpg" class="thumbnail marco"/>
+		    <img id="img3" onclick="zoom_in('bodega/img_3.jpg')" src="bodega/img_3.jpg" class="thumbnail marco"/>
+		    <img id="img4" onclick="zoom_in('bodega/img_4.jpg')" src="bodega/img_4.jpg" class="thumbnail marco"/>
+		    <img id="img5" onclick="zoom_in('bodega/img_5.jpg')" src="bodega/img_5.jpg" class="thumbnail marco"/>
+		    <img id="img6" onclick="zoom_in('bodega/img_6.jpg')" src="bodega/img_6.jpg" class="thumbnail marco"/>
+		    <img id="img7" onclick="zoom_in('bodega/img_7.jpg')" src="bodega/img_7.jpg" class="thumbnail marco"/>
+		</div>
+		<div>
+		    <img id="img8" onclick="zoom_in('bodega/img_8.jpg')" src="bodega/img_8.jpg" class="thumbnail marco" />
+		    <img id="img9" onclick="zoom_in('bodega/img_9.jpg')" src="bodega/img_9.jpg" class="thumbnail marco" />
+		    <img id="img10" onclick="zoom_in('bodega/img_10.jpg')" src="bodega/img_10.jpg" class="thumbnail marco"/>
+		    <img id="img11" onclick="zoom_in('bodega/img_11.jpg')" src="bodega/img_11.jpg" class="thumbnail marco"/>
+		    <img id="img12" onclick="zoom_in('bodega/img_12.jpg')" src="bodega/img_12.jpg" class="thumbnail marco"/>
+		    <img id="img13" onclick="zoom_in('bodega/img_13.jpg')" src="bodega/img_13.jpg" class="thumbnail marco"/>
+		    <img id="img14" onclick="zoom_in('bodega/img_14.jpg')" src="bodega/img_14.jpg" class="thumbnail marco"/>
+		</div>
+		<div>
+		    <img id="img15" onclick="zoom_in('bodega/img_15.jpg')" src="bodega/img_15.jpg" class="thumbnail marco"/>
+		    <img id="img16" onclick="zoom_in('bodega/img_16.jpg')" src="bodega/img_16.jpg" class="thumbnail marco"/>
+		    <img id="img17" onclick="zoom_in('bodega/img_17.jpg')" src="bodega/img_17.jpg" class="thumbnail marco"/>
+		    <img id="img18" onclick="zoom_in('bodega/img_18.jpg')" src="bodega/img_18.jpg" class="thumbnail marco"/>
+		    <img id="img19" onclick="zoom_in('bodega/img_19.jpg')" src="bodega/img_19.jpg" class="thumbnail marco"/>
+		    <img id="img10" onclick="zoom_in('bodega/img_20.jpg')" src="bodega/img_20.jpg" class="thumbnail marco"/>
+		    <img id="more" onClick="window.location='mas_imagenes.html'" src="bodega/more.png" class="thumbnail marco"/>
+		</div>
+	    </div>
+	    <!-- </div> -->
+	<div class="zooming" onclick="zoom_out()">
+	    <img id="img_zoom" src=""/>
+	</div>
+	<!-- <div id="formularioRegistro">
+	     <h2>Necesitamos solo algunos datos , para que ingreses a TRIMAGE.</h2>
+	     <label id="l_correo">Tu correo</label><br>
+	     <input id="i_correo" placeholder="Cual es tu dirección de correo electrónico?"><br>
+	     <label id="l_clave">Tu clave</label><br>
+	     <input id="i_clave" placeholder="Digita tu clave"><br>
+	     <button onClick="window.location='in_session.html'">Ingresar</button>
+	     </div> -->
+    </body>
+</html>
