@@ -10,6 +10,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <link href="assets_v2/index.css" rel="stylesheet">
   <script src="lib/style/registro.js"></script>
+  <script src="lib/js/registrarse.js"></script>
+  <script src="lib/js/utils.js"></script>
 </head>
 <body>
   <section class="header-page">
@@ -34,15 +36,16 @@
   </div>
   <div id="formularioRegistro">
       <h2>Necesitamos solo algunos datos , para que seas parte de nosotros.</h2>
+      <h2 id="error" style="color:red"></h2>
       <label id="l_usuario">Tu nombre</label><br>
       <input id="i_usuario" placeholder="Cual es tu nombre?"><br>
       <label id="l_correo">Tu correo</label><br>
-      <input id="i_correo" placeholder="Cual es tu dirección de correo electrónico?"><br>
+      <input id="i_correo" placeholder="Cual es tu dirección de correo electrónico?" type="email"><br>
       <label id="l_clave">Tu clave</label><br>
-      <input id="i_clave" placeholder="Digita una clave que recuerdes"><br>
+      <input id="i_clave" placeholder="Digita una clave que recuerdes" type="password"><br>
       <label id="l_clave_r">Repite tu clave</label><br>
-      <input id="i_clave_r" placeholder="Digita nuevamente la clave"><br>
-      <button>Registrarme</button>
+      <input id="i_clave_r" placeholder="Digita nuevamente la clave" type="password"><br>
+      <button onclick="registrarse()">Registrarme</button>
   </div>
 </body>
 </html>

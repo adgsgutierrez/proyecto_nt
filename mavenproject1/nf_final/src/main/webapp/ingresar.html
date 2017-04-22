@@ -10,6 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <link href="assets_v2/index.css" rel="stylesheet">
   <script src="lib/style/registro.js"></script>
+  <script src="lib/js/ingresar.js"></script>
+  <script src="lib/js/utils.js"></script>
 </head>
 <body>
   <section class="header-page">
@@ -34,11 +36,12 @@
   </div>
   <div id="formularioRegistro">
       <h2>Necesitamos solo algunos datos , para que ingreses a TRIMAGE.</h2>
+      <h2 id="error" style="color:red"></h2>
       <label id="l_correo">Tu correo</label><br>
-      <input id="i_correo" placeholder="Cual es tu dirección de correo electrónico?"><br>
+      <input id="i_correo" placeholder="Cual es tu dirección de correo electrónico?" type="email"><br>
       <label id="l_clave">Tu clave</label><br>
-      <input id="i_clave" placeholder="Digita tu clave"><br>
-      <button onClick="window.location='in_session.html'">Ingresar</button>
+      <input id="i_clave" placeholder="Digita tu clave" type="password"><br>
+      <button onClick="ingresar()">Ingresar</button>
   </div>
 </body>
 </html>

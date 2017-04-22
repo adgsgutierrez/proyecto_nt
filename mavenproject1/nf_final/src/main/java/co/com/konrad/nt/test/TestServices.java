@@ -1,22 +1,14 @@
 package co.com.konrad.nt.test;
 
+import co.com.konrad.nt.logic.UsuarioLogic;
 import com.google.gson.Gson;
 
-import co.com.konrad.nt.dto.ResponseNT;
-import co.com.konrad.nt.logic.Usuario;
 
 public class TestServices {
-
 	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Usuario usuario;
-		Gson gson = new Gson();
-		usuario = new Usuario();
-		//ResponseNT respuesta = usuario.iniciar_sesion("porlando@gmail.com","123456");
-                ResponseNT respuesta = usuario.crear_contacto("prueba@gmail.com","123456","Usuario Prueba");
-		System.out.println(gson.toJson(respuesta)); 
-	}
+    public static void main(String[] args) {
+        //UsuarioLogic usuariologic = new UsuarioLogic();
+        //usuariologic.iniciar_sesion("correo@correp.com", "123456");
+    }
 
 }

@@ -5,12 +5,13 @@
  */
 package co.com.konrad.nt.ws;
 
-import co.com.konrad.nt.dto.ResponseNT;
+import co.com.konrad.nt.dto.UsuarioDTO;
+import co.com.konrad.nt.logic.UsuarioLogic;
 import com.google.gson.Gson;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
@@ -25,51 +26,22 @@ public class Usuario {
     @Context
     private UriInfo context;
     private final Gson gson = new Gson();
-    private co.com.konrad.nt.logic.Usuario usuario;
-
+   
     @POST
     @Path("login")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getLogin(@QueryParam("usuario") String usuario , @QueryParam("clave") String clave){
-        this.usuario = new co.com.konrad.nt.logic.Usuario();
-        ResponseNT respuesta = this.usuario.iniciar_sesion(usuario,clave);
-        return this.gson.toJson(respuesta);
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getLogin(UsuarioDTO usuario){
+        UsuarioLogic usuariologic = new UsuarioLogic();
+        return gson.toJson(usuariologic.iniciar_sesion(usuario));
     }
-    
+
     @POST
-    @Path("historico")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getHistorico(@QueryParam("usuario") Integer id_usuario){
-        this.usuario = new co.com.konrad.nt.logic.Usuario();
-        ResponseNT respuesta = this.usuario.historico_usuario(id_usuario);
-        return this.gson.toJson(respuesta);
-    }
-    
-    @POST
-    @Path("adicionar/contacto")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String agregar_contacto(@QueryParam("usuario") Integer id_usuario , @QueryParam("contacto") Integer contacto){
-        this.usuario = new co.com.konrad.nt.logic.Usuario();
-        ResponseNT respuesta = this.usuario.agregar_contacto(id_usuario, contacto);
-        return this.gson.toJson(respuesta);
-    }
-    @POST
-    @Path("adicionar/tarjeta_credito")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String agregar_tarjeta(@QueryParam("usuario") Integer id_usuario , @QueryParam("numero") String numero, @QueryParam("fecha") String fecha, @QueryParam("automatico") Boolean pago){
-        this.usuario = new co.com.konrad.nt.logic.Usuario();
-        ResponseNT respuesta = this.usuario.agregar_tarjeta(id_usuario, numero , fecha , pago);
-        return this.gson.toJson(respuesta);
-    }
-    @POST
-    @Path("registrar")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String registrar(@QueryParam("correo") String usuario ,
-                            @QueryParam("clave") String clave, 
-                            @QueryParam("nombre") String nombre_completo){
-        
-        this.usuario = new co.com.konrad.nt.logic.Usuario();
-        ResponseNT respuesta = this.usuario.crear_contacto(usuario, clave , nombre_completo );
-        return this.gson.toJson(respuesta);
+    @Path("signin")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getSignIn(UsuarioDTO usuario){
+        UsuarioLogic usuariologic = new UsuarioLogic();
+        return gson.toJson(usuariologic.crear_usuario(usuario));
     }
 }

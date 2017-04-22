@@ -1,31 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package co.com.konrad.nt.dto;
 
-import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ *
+ * @author ADGS
+ */
+@XmlRootElement
 public class UsuarioDTO {
-	
-    private Integer id;
-    private String correo;
-    private String clave;
-    private String avatar;
-    private String nombre;
     
-    private ArrayList<TarjetaDTO> tarjetas;
+    private Integer id;
+    private String usuario;
+    private String clave;
+    private String nombre;
+    private String avatar;
 
-    public Integer getId() {
-        return id;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getClave() {
@@ -36,14 +36,6 @@ public class UsuarioDTO {
         this.clave = clave;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -52,12 +44,25 @@ public class UsuarioDTO {
         this.nombre = nombre;
     }
 
-    public ArrayList<TarjetaDTO> getTarjetas() {
-        return tarjetas;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setTarjetas(ArrayList<TarjetaDTO> tarjetas) {
-        this.tarjetas = tarjetas;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    } 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "UsuarioDTO{" + "id=" + id + ", usuario=" + usuario + ", nombre=" + nombre + ", avatar=" + avatar + '}';
     }
     
 }
