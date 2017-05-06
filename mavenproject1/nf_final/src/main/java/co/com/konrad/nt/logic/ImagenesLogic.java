@@ -5,15 +5,10 @@
  */
 package co.com.konrad.nt.logic;
 
-import co.com.konrad.nt.dto.ResponseNT;
-
 /**
  *
  * @author cesar
  */
-public class Imagenes {
-    public ResponseNT getImagenes () {
-        ResponseNT response = new ResponseNT();
-        return response;
-    }
+public class ImagenesLogic {
+   
 }
