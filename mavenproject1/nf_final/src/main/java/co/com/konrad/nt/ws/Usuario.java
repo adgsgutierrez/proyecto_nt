@@ -44,4 +44,13 @@ public class Usuario {
         UsuarioLogic usuariologic = new UsuarioLogic();
         return gson.toJson(usuariologic.crear_usuario(usuario));
     }
+    
+    @POST
+    @Path("editUser")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String profile(UsuarioDTO usuario) {
+        UsuarioLogic usuariologic = new UsuarioLogic();
+        return gson.toJson(usuariologic.editar_usuario(usuario));
+    }
 }

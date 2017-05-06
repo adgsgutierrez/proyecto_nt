@@ -25,4 +25,7 @@ public class Constantes {
     public static final String M_EXITOSO = "Consulta Satisfactoria";
     public static final String M_ERROR = "Se encontró un error en el sistema";
     public static final String M_NOT_USUARIO = "Error de usuario y/o clave";
+    
+    /** RUTA IMAGENES **/
+    public static final String RUTE_IMG = "C:\\Users\\ADGS\\Documents\\Universidad\\Materias\\Nuevas Tecnologias\\proyectos\\proyecto_nt\\mavenproject1\\nf_final\\src\\main\\webapp\\bodega\\";
 }

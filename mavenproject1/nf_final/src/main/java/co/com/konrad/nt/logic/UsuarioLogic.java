@@ -110,4 +110,24 @@ public class UsuarioLogic implements Serializable{
         }
         return response;
     }
+
+    public ResponseDTO editar_usuario(UsuarioDTO usuario) {
+        response = new ResponseDTO();
+        response.setCodigo(Constantes.C_EXITOSO);
+        response.setMensaje(Constantes.M_EXITOSO);
+        try{
+            Usuario user = em.find(Usuario.class, usuario.getId());
+            em.getTransaction().begin();
+            user.setUsuarioNombre(usuario.getNombre());
+            user.setUsuarioAvatar(usuario.getAvatar());
+            user.setUsuarioClave(usuario.getClave());
+            em.getTransaction().commit();
+         }catch(Exception e){
+            System.out.println("Error de tipo "+e.getMessage());
+            response.setCodigo(Constantes.C_NOT_USUARIO);
+            response.setMensaje(Constantes.M_NOT_USUARIO);
+            response.setData(null);
+        }
+        return response;
+    }
 }

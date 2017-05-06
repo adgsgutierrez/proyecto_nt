@@ -14,6 +14,7 @@
   <link href="http://hayageek.github.io/jQuery-Upload-File/4.0.10/uploadfile.css" rel="stylesheet">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://hayageek.github.io/jQuery-Upload-File/4.0.10/jquery.uploadfile.min.js"></script>
+  <script src="lib/js/in_session.js"></script>
 </head>
 <body>
   <section class="header-page">
@@ -21,7 +22,7 @@
       <img src="assets/img/favicon.png">
     </a>
     <input id="buscador" class="search" placeholder="Busca aquí">
-    <a class="ingresar">
+    <a class="ingresar" href="in_session.html">
       Mi cuenta
     </a>
     <a class="registrarse" href="filtrar.html">
@@ -37,7 +38,7 @@
       </figure>
   </div>
   <div class="menu">
-      <div>Mi Perfil</div>
+      <div onclick="location.href='perfil.html'">Mi Perfil</div>
       <div>Mi Bodega</div>
       <!-- <div>Mis Deseos</div> -->
       <div>Mi Historial</div>
@@ -45,15 +46,22 @@
   </div>
     <div class="title">Aquí puedes colocar la imágen que deseas vender</div>
   <div class="contenido">
-      <div id="fileuploader">Upload</div>
+     <!--  <div id="fileuploader">Upload</div>-->
+     <form action="http://localhost:8080/nf_final/services/imagenes/misImagenes/" method="POST" enctype="multipart/form-data">
+         <input type="hidden" name="id_user" id="id_user">
+         <input type="file" name="file" accept="image/*">
+        <input type="submit">
+      </form>
   </div>
   <script>
-    $(document).ready(function()
-    {
-            $("#fileuploader").uploadFile({
-            url:'services/imagenes/misImagenes',
-            fileName:"myfile"
-            });
+    $(document).ready(function(){
+        user = JSON.parse(localStorage.getItem("usuario"));
+        $("#id_user").val(user.id)
+        /*$("#fileuploader").uploadFile({
+            url:'services/imagenes/misImagenes/'+user.id,
+            fileName:"myfile",
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/
+        });*/
     });
 </script>
 </body>
