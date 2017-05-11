@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Macondo" rel="stylesheet">
   <link href="assets_v2/index.css" rel="stylesheet">
   <link href="assets_v2/in_session.css" rel="stylesheet">
+  <link href="assets_v2/bodega.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="lib/style/in_session.js"></script>
   <link href="http://hayageek.github.io/jQuery-Upload-File/4.0.10/uploadfile.css" rel="stylesheet">
@@ -49,7 +50,8 @@
      <!--  <div id="fileuploader">Upload</div>-->
      <form action="http://localhost:8080/nf_final/services/imagenes/misImagenes/" method="POST" enctype="multipart/form-data">
          <input type="hidden" name="id_user" id="id_user">
-         <input type="file" name="file" accept="image/*">
+         <input type="file" name="file" accept="image/*" class="inputfile">
+         <label for="file">Seleccione su fotografía</label>
         <input type="submit">
       </form>
   </div>
