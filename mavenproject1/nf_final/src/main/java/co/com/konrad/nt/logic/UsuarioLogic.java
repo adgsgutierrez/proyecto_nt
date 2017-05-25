@@ -39,6 +39,8 @@ public class UsuarioLogic implements Serializable{
      * @return ResponseDTO : es el objeto generico de respuesta que tendrá la aplicación
      **/
     public ResponseDTO iniciar_sesion(UsuarioDTO usuario){
+        System.out.println(""+usuario.toString());
+        System.out.println(""+usuario.getClave());
         response = new ResponseDTO();
         response.setCodigo(Constantes.C_EXITOSO);
         response.setMensaje(Constantes.M_EXITOSO);

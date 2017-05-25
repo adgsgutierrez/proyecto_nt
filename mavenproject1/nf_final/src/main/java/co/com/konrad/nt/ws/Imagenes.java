@@ -35,9 +35,10 @@ public class Imagenes {
     @Path("/misImagenes/")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public String capturaImagenes(@FormDataParam("file") InputStream uploadedInputStream, 
-            @FormDataParam("file")FormDataContentDisposition fileDetail ,@FormDataParam("id_user") String id){
+            @FormDataParam("file")FormDataContentDisposition fileDetail ,@FormDataParam("id_user") String id
+     ,@FormDataParam("id_nombre") String nombre ,@FormDataParam("id_costo") String costo ,@FormDataParam("id_descripcion") String descripcion){
         ImagenesLogic img = new ImagenesLogic();
-        img.guardarFile(uploadedInputStream,fileDetail , id);
+        img.guardarFile(uploadedInputStream,fileDetail , id , nombre , costo , descripcion);
        // return gson.toJson();
        return "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js\"></script>"
                + "<script> $(document).ready(function(){window.location.href = 'http://localhost:8080/nf_final/bodega.html';});</script>";

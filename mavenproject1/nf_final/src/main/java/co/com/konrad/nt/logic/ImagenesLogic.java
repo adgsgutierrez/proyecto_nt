@@ -5,6 +5,7 @@
  */
 package co.com.konrad.nt.logic;
 
+import co.com.konrad.nt.dao.Imagen;
 import co.com.konrad.nt.dto.ResponseDTO;
 import co.com.konrad.nt.utils.Constantes;
 import java.io.File;
@@ -12,6 +13,9 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 /**
  *
@@ -20,20 +24,22 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 public class ImagenesLogic {
    
     private ResponseDTO response;
+    private final EntityManager em;
+
+    public ImagenesLogic() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(Constantes.CONEXION);
+        this.em = emf.createEntityManager();
+    }
     
     public ResponseDTO guardarFile(InputStream inStream, 
-            FormDataContentDisposition fileDetail , String usuario){
+            FormDataContentDisposition fileDetail , String usuario , String nombre , String costo , String descripcion){
         Date fecha = new Date();
-        System.out.println("RUTE "+Constantes.RUTE_IMG);
-        System.out.println("USUARIO "+ usuario);
-        System.out.println("FECHA "+ fecha.getTime());
+
         String extension = "";
         int i = fileDetail.getFileName().lastIndexOf('.');
         if (i > 0) {
             extension = fileDetail.getFileName().substring(i+1);
         }
-        System.out.println("FECHA "+ fileDetail.getFileName());
-        System.out.println("File "+ extension);
         String target = Constantes.RUTE_IMG + usuario +"_"+ fecha.getTime() + "." + extension;
         try{
             OutputStream out = null;
@@ -45,6 +51,20 @@ public class ImagenesLogic {
             }
             out.flush();
             out.close();
+            
+            Imagen imagen = new Imagen();
+            imagen.setImagenCosto(Integer.parseInt(costo));
+            imagen.setImagenDescripcion(descripcion);
+            imagen.setImagenNombre(nombre);
+            imagen.setImagenFull(target);
+            imagen.setImagenEstado("V");
+            imagen.setImagenFecha(new Date());
+            
+            em.getTransaction().begin();
+            em.persist(imagen);
+            em.flush();
+            em.getTransaction().commit();
+            
         }catch(Exception e){
             e.printStackTrace();
             System.out.println("Error en guardar File "+e.getMessage());

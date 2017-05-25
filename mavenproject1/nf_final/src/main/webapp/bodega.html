@@ -48,12 +48,17 @@
     <div class="title">Aquí puedes colocar la imágen que deseas vender</div>
   <div class="contenido">
      <!--  <div id="fileuploader">Upload</div>-->
-     <form action="http://localhost:8080/nf_final/services/imagenes/misImagenes/" method="POST" enctype="multipart/form-data">
+     <form action="http://localhost:8080/nf_final/services/imagenes/misImagenes/" method="POST" enctype="multipart/form-data" class="formulario">
          <input type="hidden" name="id_user" id="id_user">
+         <input type="text" name="id_nombre" id="id_nombre" placeholder="Nombre de la imagen" required>
+         <input type="text" name="id_descripcion" id="id_descripcion" placeholder="Descripción de la imagen" required>
+         <input type="text" name="id_costo" id="id_costo" placeholder="Digite el costo de la imagen" required>
          <input type="file" name="file" accept="image/*" class="inputfile">
-         <label for="file">Seleccione su fotografía</label>
-        <input type="submit">
+         <input type="submit" style="border:0px">
       </form>
+     <div  class="formulario">
+         Imagenes
+     </div>
   </div>
   <script>
     $(document).ready(function(){
