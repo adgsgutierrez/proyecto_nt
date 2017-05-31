@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.com.konrad.nt.dao;
+package co.com.konrad.nt.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -30,21 +30,21 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ADGS
+ * @author DesarrolloMovil_1
  */
 @Entity
 @Table(name = "imagen")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Imagen.findAll", query = "SELECT i FROM Imagen i"),
-    @NamedQuery(name = "Imagen.findByImagenId", query = "SELECT i FROM Imagen i WHERE i.imagenId = :imagenId"),
-    @NamedQuery(name = "Imagen.findByImagenNombre", query = "SELECT i FROM Imagen i WHERE i.imagenNombre = :imagenNombre"),
-    @NamedQuery(name = "Imagen.findByImagenDescripcion", query = "SELECT i FROM Imagen i WHERE i.imagenDescripcion = :imagenDescripcion"),
-    @NamedQuery(name = "Imagen.findByImagenFecha", query = "SELECT i FROM Imagen i WHERE i.imagenFecha = :imagenFecha"),
-    @NamedQuery(name = "Imagen.findByImagenEstado", query = "SELECT i FROM Imagen i WHERE i.imagenEstado = :imagenEstado"),
-    @NamedQuery(name = "Imagen.findByImagenCosto", query = "SELECT i FROM Imagen i WHERE i.imagenCosto = :imagenCosto"),
-    @NamedQuery(name = "Imagen.findByImagenMin", query = "SELECT i FROM Imagen i WHERE i.imagenMin = :imagenMin"),
-    @NamedQuery(name = "Imagen.findByImagenFull", query = "SELECT i FROM Imagen i WHERE i.imagenFull = :imagenFull")})
+    @NamedQuery(name = "Imagen.findAll", query = "SELECT i FROM Imagen i")
+    , @NamedQuery(name = "Imagen.findByImagenId", query = "SELECT i FROM Imagen i WHERE i.imagenId = :imagenId")
+    , @NamedQuery(name = "Imagen.findByImagenNombre", query = "SELECT i FROM Imagen i WHERE i.imagenNombre = :imagenNombre")
+    , @NamedQuery(name = "Imagen.findByImagenDescripcion", query = "SELECT i FROM Imagen i WHERE i.imagenDescripcion = :imagenDescripcion")
+    , @NamedQuery(name = "Imagen.findByImagenFecha", query = "SELECT i FROM Imagen i WHERE i.imagenFecha = :imagenFecha")
+    , @NamedQuery(name = "Imagen.findByImagenEstado", query = "SELECT i FROM Imagen i WHERE i.imagenEstado = :imagenEstado")
+    , @NamedQuery(name = "Imagen.findByImagenCosto", query = "SELECT i FROM Imagen i WHERE i.imagenCosto = :imagenCosto")
+    , @NamedQuery(name = "Imagen.findByImagenMin", query = "SELECT i FROM Imagen i WHERE i.imagenMin = :imagenMin")
+    , @NamedQuery(name = "Imagen.findByImagenFull", query = "SELECT i FROM Imagen i WHERE i.imagenFull = :imagenFull")})
 public class Imagen implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -203,7 +203,7 @@ public class Imagen implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.konrad.nt.dao.Imagen[ imagenId=" + imagenId + " ]";
+        return "co.com.konrad.nt.entities.Imagen[ imagenId=" + imagenId + " ]";
     }
     
 }

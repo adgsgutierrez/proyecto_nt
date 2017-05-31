@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.com.konrad.nt.dao;
+package co.com.konrad.nt.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -27,16 +27,16 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ADGS
+ * @author DesarrolloMovil_1
  */
 @Entity
 @Table(name = "tarjeta")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Tarjeta.findAll", query = "SELECT t FROM Tarjeta t"),
-    @NamedQuery(name = "Tarjeta.findByTarjetaNumero", query = "SELECT t FROM Tarjeta t WHERE t.tarjetaNumero = :tarjetaNumero"),
-    @NamedQuery(name = "Tarjeta.findByTarjetaCvc", query = "SELECT t FROM Tarjeta t WHERE t.tarjetaCvc = :tarjetaCvc"),
-    @NamedQuery(name = "Tarjeta.findByTarjetaFecha", query = "SELECT t FROM Tarjeta t WHERE t.tarjetaFecha = :tarjetaFecha")})
+    @NamedQuery(name = "Tarjeta.findAll", query = "SELECT t FROM Tarjeta t")
+    , @NamedQuery(name = "Tarjeta.findByTarjetaNumero", query = "SELECT t FROM Tarjeta t WHERE t.tarjetaNumero = :tarjetaNumero")
+    , @NamedQuery(name = "Tarjeta.findByTarjetaCvc", query = "SELECT t FROM Tarjeta t WHERE t.tarjetaCvc = :tarjetaCvc")
+    , @NamedQuery(name = "Tarjeta.findByTarjetaFecha", query = "SELECT t FROM Tarjeta t WHERE t.tarjetaFecha = :tarjetaFecha")})
 public class Tarjeta implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -126,7 +126,7 @@ public class Tarjeta implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.konrad.nt.dao.Tarjeta[ tarjetaNumero=" + tarjetaNumero + " ]";
+        return "co.com.konrad.nt.entities.Tarjeta[ tarjetaNumero=" + tarjetaNumero + " ]";
     }
     
 }

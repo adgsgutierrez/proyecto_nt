@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.com.konrad.nt;
+package org.netbeans.rest.application.config;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
-import org.glassfish.jersey.media.multipart.MultiPartFeature;
 
 /**
  *
- * @author ADGS
+ * @author DesarrolloMovil_1
  */
 @javax.ws.rs.ApplicationPath("services")
 public class ApplicationConfig extends Application {
@@ -20,7 +19,6 @@ public class ApplicationConfig extends Application {
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new java.util.HashSet<>();
         addRestResourceClasses(resources);
-        resources.add(MultiPartFeature.class);
         return resources;
     }
 
@@ -31,8 +29,11 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(co.com.konrad.nt.ws.Imagenes.class);
-        resources.add(co.com.konrad.nt.ws.Usuario.class);
+        resources.add(co.com.konrad.nt.services.CompraFacadeREST.class);
+        resources.add(co.com.konrad.nt.services.ImagenFacadeREST.class);
+        resources.add(co.com.konrad.nt.services.NotificaciónFacadeREST.class);
+        resources.add(co.com.konrad.nt.services.TarjetaFacadeREST.class);
+        resources.add(co.com.konrad.nt.services.UsuarioFacadeREST.class);
     }
     
 }

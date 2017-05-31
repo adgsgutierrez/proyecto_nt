@@ -2,8 +2,6 @@ function ingresar() {
     var objectSend = {
         "usuario" : $("#i_correo").val(),
         "clave": calcMD5($("#i_clave").val()),
-        "nombre" : '',
-        "avatar" : ''
     };
     if(objectSend.usuario !== '' && objectSend.clave !== ''){
         $.ajax({

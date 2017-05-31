@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.com.konrad.nt.dao;
+package co.com.konrad.nt.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -27,24 +27,23 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ADGS
+ * @author DesarrolloMovil_1
  */
 @Entity
 @Table(name = "usuario")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
-    @NamedQuery(name = "Usuario.findByUsuarioId", query = "SELECT u FROM Usuario u WHERE u.usuarioId = :usuarioId"),
-    @NamedQuery(name = "Usuario.findByUsuarioCorreo", query = "SELECT u FROM Usuario u WHERE u.usuarioCorreo = :usuarioCorreo"),
-    @NamedQuery(name = "Usuario.findByUsuarioClave", query = "SELECT u FROM Usuario u WHERE u.usuarioClave = :usuarioClave"),
-    @NamedQuery(name = "Usuario.findByUsuarioAvatar", query = "SELECT u FROM Usuario u WHERE u.usuarioAvatar = :usuarioAvatar"),
-    @NamedQuery(name = "Usuario.findByUsuarioNombre", query = "SELECT u FROM Usuario u WHERE u.usuarioNombre = :usuarioNombre")})
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
+    , @NamedQuery(name = "Usuario.findByUsuarioId", query = "SELECT u FROM Usuario u WHERE u.usuarioId = :usuarioId")
+    , @NamedQuery(name = "Usuario.findByUsuarioCorreo", query = "SELECT u FROM Usuario u WHERE u.usuarioCorreo = :usuarioCorreo")
+    , @NamedQuery(name = "Usuario.findByUsuarioClave", query = "SELECT u FROM Usuario u WHERE u.usuarioClave = :usuarioClave")
+    , @NamedQuery(name = "Usuario.findByUsuarioAvatar", query = "SELECT u FROM Usuario u WHERE u.usuarioAvatar = :usuarioAvatar")
+    , @NamedQuery(name = "Usuario.findByUsuarioNombre", query = "SELECT u FROM Usuario u WHERE u.usuarioNombre = :usuarioNombre")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
     @Basic(optional = false)
     @Column(name = "usuario_id")
     private Integer usuarioId;
@@ -60,23 +59,17 @@ public class Usuario implements Serializable {
     @Size(max = 45)
     @Column(name = "usuario_nombre")
     private String usuarioNombre;
-    
-    
     @JoinTable(name = "contacto", joinColumns = {
         @JoinColumn(name = "usuario_contacto", referencedColumnName = "usuario_id")}, inverseJoinColumns = {
         @JoinColumn(name = "usuario_propietario", referencedColumnName = "usuario_id")})
     @ManyToMany
     private Collection<Usuario> usuarioCollection;
-    
     @ManyToMany(mappedBy = "usuarioCollection")
     private Collection<Usuario> usuarioCollection1;
-    
     @ManyToMany(mappedBy = "usuarioCollection")
     private Collection<Imagen> imagenCollection;
-    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioUsuarioId")
     private Collection<Imagen> imagenCollection1;
-    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioUsuarioId")
     private Collection<Tarjeta> tarjetaCollection;
 
@@ -194,7 +187,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.konrad.nt.dao.Usuario[ usuarioId=" + usuarioId + " ]";
+        return "co.com.konrad.nt.entities.Usuario[ usuarioId=" + usuarioId + " ]";
     }
     
 }

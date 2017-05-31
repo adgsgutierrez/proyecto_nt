@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.com.konrad.nt.dao;
+package co.com.konrad.nt.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -28,17 +28,17 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ADGS
+ * @author DesarrolloMovil_1
  */
 @Entity
 @Table(name = "compra")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Compra.findAll", query = "SELECT c FROM Compra c"),
-    @NamedQuery(name = "Compra.findByCompraId", query = "SELECT c FROM Compra c WHERE c.compraId = :compraId"),
-    @NamedQuery(name = "Compra.findByCompraFecha", query = "SELECT c FROM Compra c WHERE c.compraFecha = :compraFecha"),
-    @NamedQuery(name = "Compra.findByCompraEstado", query = "SELECT c FROM Compra c WHERE c.compraEstado = :compraEstado"),
-    @NamedQuery(name = "Compra.findByCompraCalificacion", query = "SELECT c FROM Compra c WHERE c.compraCalificacion = :compraCalificacion")})
+    @NamedQuery(name = "Compra.findAll", query = "SELECT c FROM Compra c")
+    , @NamedQuery(name = "Compra.findByCompraId", query = "SELECT c FROM Compra c WHERE c.compraId = :compraId")
+    , @NamedQuery(name = "Compra.findByCompraFecha", query = "SELECT c FROM Compra c WHERE c.compraFecha = :compraFecha")
+    , @NamedQuery(name = "Compra.findByCompraEstado", query = "SELECT c FROM Compra c WHERE c.compraEstado = :compraEstado")
+    , @NamedQuery(name = "Compra.findByCompraCalificacion", query = "SELECT c FROM Compra c WHERE c.compraCalificacion = :compraCalificacion")})
 public class Compra implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -150,7 +150,7 @@ public class Compra implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.konrad.nt.dao.Compra[ compraId=" + compraId + " ]";
+        return "co.com.konrad.nt.entities.Compra[ compraId=" + compraId + " ]";
     }
     
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.com.konrad.nt.dao;
+package co.com.konrad.nt.entities;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -21,16 +21,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author ADGS
+ * @author DesarrolloMovil_1
  */
 @Entity
 @Table(name = "notificaci\u00f3n")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Notificaci\u00f3n.findAll", query = "SELECT n FROM Notificaci\u00f3n n"),
-    @NamedQuery(name = "Notificaci\u00f3n.findByNotificacionId", query = "SELECT n FROM Notificaci\u00f3n n WHERE n.notificacionId = :notificacionId"),
-    @NamedQuery(name = "Notificaci\u00f3n.findByNotificacionDescripci\u00f3n", query = "SELECT n FROM Notificaci\u00f3n n WHERE n.notificacionDescripci\u00f3n = :notificacionDescripci\u00f3n"),
-    @NamedQuery(name = "Notificaci\u00f3n.findByNotificaci\u00f3nEstado", query = "SELECT n FROM Notificaci\u00f3n n WHERE n.notificaci\u00f3nEstado = :notificaci\u00f3nEstado")})
+    @NamedQuery(name = "Notificaci\u00f3n.findAll", query = "SELECT n FROM Notificaci\u00f3n n")
+    , @NamedQuery(name = "Notificaci\u00f3n.findByNotificacionId", query = "SELECT n FROM Notificaci\u00f3n n WHERE n.notificacionId = :notificacionId")
+    , @NamedQuery(name = "Notificaci\u00f3n.findByNotificacionDescripci\u00f3n", query = "SELECT n FROM Notificaci\u00f3n n WHERE n.notificacionDescripci\u00f3n = :notificacionDescripci\u00f3n")
+    , @NamedQuery(name = "Notificaci\u00f3n.findByNotificaci\u00f3nEstado", query = "SELECT n FROM Notificaci\u00f3n n WHERE n.notificaci\u00f3nEstado = :notificaci\u00f3nEstado")})
 public class Notificación implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -110,7 +110,7 @@ public class Notificación implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.konrad.nt.dao.Notificaci\u00f3n[ notificacionId=" + notificacionId + " ]";
+        return "co.com.konrad.nt.entities.Notificaci\u00f3n[ notificacionId=" + notificacionId + " ]";
     }
     
 }
