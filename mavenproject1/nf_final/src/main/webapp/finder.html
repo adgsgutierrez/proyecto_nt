@@ -11,7 +11,6 @@
 	<link href="assets_v2/in_session.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="lib/style/in_session.js"></script>
-        <script src="lib/js/perfil.js"></script>
 	<link href="http://hayageek.github.io/jQuery-Upload-File/4.0.10/uploadfile.css" rel="stylesheet">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="http://hayageek.github.io/jQuery-Upload-File/4.0.10/jquery.uploadfile.min.js"></script>
@@ -21,6 +20,7 @@
 	    <a id="logo" href="index.html">
 		<img src="assets/img/favicon.png">
 	    </a>
+	    <input id="buscador" class="search" placeholder="Busca aquí">
 	    <a class="ingresar"  href="in_session.html">
 		Mi cuenta
 	    </a>
@@ -44,28 +44,18 @@
 	    <div onclick="cerrar_session()">Cerrar Sesión</div>
 	</div>
 	<div class="title">Perfil</div>
-	<div class="contenido" id="formularioRegistro">
+	<div class="contenido">
 	    <div class="linea">
 		<div class="div-20">
-		    <div><img id="avatar" name="avatar" onclick="zoom_in('bodega/img_1.jpg')" src="bodega/img_1.jpg" class="thumbnail marco"/></div>
+		    <div><img id="img1" onclick="zoom_in('bodega/img_1.jpg')" src="bodega/img_1.jpg" class="thumbnail marco"/></div>
 		</div>
 		<div class="div-80">
-		    <div class="linea"><div class="div-20"><label>Nombre: </label></div><div class="div-80"><input type="text" id="name" name="name"/></div></div>
-		    <div class="linea"><div class="div-20"><label>Correo: </label></div><div class="div-80"><input type="mail" id="mail" name="mail"/></div></div>
+
 		</div>
 	    </div>
-	    <div class="linea" id="tarjetas">
-		<div class="linea"><div class="div-20"><label>Numero: </label></div><div class="div-80"><input type="text" id="numero" name="numero"/></div></div>
-		<div class="linea"><div class="div-20"><label>Fecha Vencimiento: </label></div><div class="div-80"><input type="date" id="fvencimiento" name="fvencimiento"/></div></div>
-	    </div>
-	    <div class="linea" id="password">
-		<div class="linea"><div class="div-20"><label>Contraseña vieja: </label></div><div class="div-80"><input type="text" id="pass" name="pass"/></div></div>
-	    </div>
 	    <div class="linea">
-		<div class="linea"><div class="div-20"><label>Contraseña nueva: </label></div><div class="div-80"><input type="text" id="passN" name="passN"/></div></div>
-		<div class="linea"><div class="div-20"><label>Repita Contraseña: </label></div><div class="div-80"><input type="text" id="passVerify" name="passVerify"/></div></div>
+		<button id="guardar" name="guardar">Guardar</button><button id="guardar" name="guardar">Dar de Baja</button>
 	    </div>
-	    <button id="guardar" name="guardar" onclick="guardar()">Guardar</button><button id="guardar" name="guardar" onclick="agregar()">Agregar Tarjeta</button>
 	</div>
 	<script>
 	</script>
