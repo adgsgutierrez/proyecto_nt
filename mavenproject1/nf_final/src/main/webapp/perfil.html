@@ -51,12 +51,8 @@
 		</div>
 		<div class="div-80">
 		    <div class="linea"><div class="div-20"><label>Nombre: </label></div><div class="div-80"><input type="text" id="name" name="name"/></div></div>
-		    <div class="linea"><div class="div-20"><label>Correo: </label></div><div class="div-80"><input type="mail" id="mail" name="mail"/></div></div>
+		    <div class="linea"><div class="div-20"><label>Correo: </label></div><div class="div-80"><input type="email" id="mail" name="mail"/></div></div>
 		</div>
-	    </div>
-	    <div class="linea" id="tarjetas">
-		<div class="linea"><div class="div-20"><label>Numero: </label></div><div class="div-80"><input type="text" id="numero" name="numero"/></div></div>
-		<div class="linea"><div class="div-20"><label>Fecha Vencimiento: </label></div><div class="div-80"><input type="date" id="fvencimiento" name="fvencimiento"/></div></div>
 	    </div>
 	    <div class="linea" id="password">
 		<div class="linea"><div class="div-20"><label>Contraseña vieja: </label></div><div class="div-80"><input type="text" id="pass" name="pass"/></div></div>
@@ -65,7 +61,17 @@
 		<div class="linea"><div class="div-20"><label>Contraseña nueva: </label></div><div class="div-80"><input type="text" id="passN" name="passN"/></div></div>
 		<div class="linea"><div class="div-20"><label>Repita Contraseña: </label></div><div class="div-80"><input type="text" id="passVerify" name="passVerify"/></div></div>
 	    </div>
-	    <button id="guardar" name="guardar" onclick="guardar()">Guardar</button><button id="guardar" name="guardar" onclick="agregar()">Agregar Tarjeta</button>
+	    <button id="guardar" name="guardar" onclick="guardar()">Guardar</button>
+            <button id="guardar" name="guardar" onclick="agregar()">Agregar Tarjeta</button>
+            <section id="cards">
+                <hr/>
+                <div class="linea" id="tarjetas">
+                    <div class="linea"><div class="div-20"><label>Numero: </label></div><div class="div-80"><input type="text" id="numero" name="numero"/></div></div>
+                    <div class="linea"><div class="div-20"><label>Fecha Vencimiento: </label></div><div class="div-80"><input type="date" id="fvencimiento" name="fvencimiento"/></div></div>
+                    <div class="linea"><div class="div-20"><label>Cvc: </label></div><div class="div-80"><input type="number" id="cvc" name="cvc"/></div></div>
+                </div>
+            </section>
+            <button id="agregar" name="agregar" onclick="registrarTarjeta()">Agregar</button>
 	</div>
 	<script>
 	</script>
