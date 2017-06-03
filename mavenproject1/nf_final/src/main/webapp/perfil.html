@@ -45,7 +45,6 @@
 	</div>
 	<div class="title">Perfil</div>
 	<div class="contenido" id="formularioRegistro">
-            <h2 id="error" style="color:red"></h2>
 	    <div class="linea">
 		<div class="div-20">
 		    <div><img id="avatar" name="avatar" onclick="zoom_in('bodega/img_1.jpg')" src="bodega/img_1.jpg" class="thumbnail marco"/></div>
@@ -64,7 +63,7 @@
 	    </div>
 	    <button id="guardar" name="guardar" onclick="guardar()">Guardar</button>
             <button id="guardar" name="guardar" onclick="agregar()">Agregar Tarjeta</button>
-            <section id="cards" style="display:none">
+            <section id="cards">
                 <hr/>
                 <div class="linea" id="tarjetas">
                     <div class="linea"><div class="div-20"><label>Numero: </label></div><div class="div-80"><input type="text" id="numero" name="numero"/></div></div>
@@ -72,7 +71,7 @@
                     <div class="linea"><div class="div-20"><label>Cvc: </label></div><div class="div-80"><input type="number" id="cvc" name="cvc"/></div></div>
                 </div>
             </section>
-            <button id="agregar" name="agregar" onclick="registrarTarjeta()" style="display:none">Agregar</button>
+            <button id="agregar" name="agregar" onclick="registrarTarjeta()">Agregar</button>
 	</div>
 	<script>
 	</script>
