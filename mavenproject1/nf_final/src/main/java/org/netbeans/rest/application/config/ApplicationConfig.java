@@ -7,7 +7,7 @@ package org.netbeans.rest.application.config;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
-
+import org.glassfish.jersey.media.multipart.MultiPartFeature;
 /**
  *
  * @author DesarrolloMovil_1
@@ -19,6 +19,7 @@ public class ApplicationConfig extends Application {
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new java.util.HashSet<>();
         addRestResourceClasses(resources);
+        resources.add(MultiPartFeature.class);
         return resources;
     }
 

@@ -6,6 +6,8 @@
 
 $(document).ready(function () {
     var usuario = localStorage.getItem('usuario');
+    usuario = JSON.parse(usuario);
+    console.log(usuario);
     $('#name').val(usuario.usuarioNombre);
     $('#mail').val(usuario.usuarioCorreo);
     $('#avatar').attr('src', usuario.usuarioAvatar);
@@ -23,8 +25,8 @@ function agregar () {
 }
 
 function verificarPass() {
-   let pass1 = $('#passN').val();
-   let pass2 = $('#passVerify').val();
+   var pass1 = $('#passN').val();
+   var pass2 = $('#passVerify').val();
    if (pass1 === pass2 && pass1 !== '' && pass2 !== '') {
        usuario.usuarioClave = pass1;
    Else
@@ -33,10 +35,10 @@ function verificarPass() {
 }
 
 function registrarTarjeta() {
-    let numero = $('#numero').val();
-    let fecha = $('#fvencimiento').val();
-    let cvc = $('#cvc').val();
-    let card = {
+    var numero = $('#numero').val();
+    var fecha = $('#fvencimiento').val();
+    var cvc = $('#cvc').val();
+    var card = {
         'tarjetaNumero': numero,
         'tarjetaCvc': cvc,
         'tarjetaFecha': fecha
@@ -67,4 +69,4 @@ function registrarTarjeta() {
             }
         });
     }
-}
+};

@@ -16,7 +16,39 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://hayageek.github.io/jQuery-Upload-File/4.0.10/jquery.uploadfile.min.js"></script>
   <script src="lib/js/in_session.js"></script>
+  <script>
+      
+      $(document).ready(function () {
+            var usuario = localStorage.getItem('usuario');
+            //usuario = JSON.parse(usuario);
+            console.log(usuario);
+            $('#id_user').val(usuario);
+            
+            test = JSON.parse(usuario);
+            
+            $.ajax({
+            url: "services/imagenes/my/"+test.usuarioId,
+            contentType:'application/json ; charset=utf-8',
+            dataType : 'json',
+            type: 'GET',
+            beforeSend: function () {
+
+            },
+            success: function (response) {
+                console.log(response);
+                var cont = '';
+                for(i = 0 ; i < response.length ; i ++){
+                    cont = cont + '<img id="img1" onclick="zoom_in(\''+response[i][6]+'\')" src='+response[i][6]+' class="thumbnail marco"/>';
+                }
+                $("#contenido").html(cont);
+            }, error: function (response) {
+                console.log(response);
+            }
+        });
+        });
+  </script>
 </head>
+
 <body>
   <section class="header-page">
     <a id="logo" href="index.html">
@@ -47,6 +79,7 @@
   </div>
     <div class="title">Aquí puedes colocar la imágen que deseas vender</div>
   <div class="contenido">
+      
      <!--  <div id="fileuploader">Upload</div>-->
      <form action="http://localhost:8080/nf_final/services/imagenes/misImagenes/" method="POST" enctype="multipart/form-data" class="formulario">
          <input type="hidden" name="id_user" id="id_user">
@@ -58,18 +91,11 @@
       </form>
      <div  class="formulario">
          Imagenes
+         <div id="contenido">
+            
+         </div>
      </div>
   </div>
-  <script>
-    $(document).ready(function(){
-        user = JSON.parse(localStorage.getItem("usuario"));
-        $("#id_user").val(user.id)
-        /*$("#fileuploader").uploadFile({
-            url:'services/imagenes/misImagenes/'+user.id,
-            fileName:"myfile",
-            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/
-        });*/
-    });
-</script>
+
 </body>
 </html>

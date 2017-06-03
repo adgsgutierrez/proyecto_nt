@@ -7,7 +7,9 @@ package co.com.konrad.nt.services;
 
 import co.com.konrad.nt.dao.UsuarioInput;
 import co.com.konrad.nt.entities.Usuario;
+import co.com.konrad.nt.entities.Usuario_;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import java.util.List;
 import javax.ejb.Asynchronous;
 import javax.ejb.Stateless;
@@ -43,10 +45,31 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
 
     @POST
     @Override
-    @Path("create")
+    @Path("signin")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Usuario entity) {
-        super.create(entity);
+    public String create(Usuario entity) throws Exception{
+         JsonObject res = new JsonObject();
+        res.addProperty("codigo", 200);
+        res.addProperty("mensaje", "operacion exitosa");
+        try{
+            super.create(entity);
+            Gson gson = new Gson();
+            javax.persistence.criteria.CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
+            javax.persistence.criteria.CriteriaQuery cq = cb.createQuery();
+            javax.persistence.criteria.Root<Usuario> rt = cq.from(Usuario.class);
+            cq.where(
+                    cb.equal(rt.get( Usuario_.usuarioCorreo), entity.getUsuarioCorreo()),
+                    cb.equal(rt.get( Usuario_.usuarioClave), entity.getUsuarioClave())
+            );
+            javax.persistence.TypedQuery<Usuario> q = getEntityManager().createQuery(cq);
+            Usuario user = q.getSingleResult();
+            res.addProperty("data", gson.toJson(user));
+        }catch(Throwable e){
+            res.addProperty("codigo", 400);
+            res.addProperty("mensaje", "operacion exitosa");
+            System.out.println(""+e.getMessage());
+        }
+        return res.toString();
     }
 
 
@@ -90,17 +113,30 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
     }
 
     @POST
-    @Path(value = "login")
-    @Produces(value = MediaType.APPLICATION_JSON)
-    @Asynchronous
-    public void login(@Suspended final AsyncResponse asyncResponse, UsuarioInput user) {
-        asyncResponse.resume(doLogin(user));
-    }
-
-    private String doLogin(UsuarioInput userInput) {
-        Gson gson = new Gson();
-        Usuario user = super.login(userInput.getUsuario(), userInput.getClave());
-        return gson.toJson(user);
+    @Path("login")
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    private String login(Usuario userInput) throws Exception{
+        
+        JsonObject res = new JsonObject();
+        try{
+            res.addProperty("codigo", 200);
+            res.addProperty("mensaje", "operacion exitosa");
+            Gson gson = new Gson();
+            javax.persistence.criteria.CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
+            javax.persistence.criteria.CriteriaQuery cq = cb.createQuery();
+            javax.persistence.criteria.Root<Usuario> rt = cq.from(Usuario.class);
+            cq.where(
+                    cb.equal(rt.get( Usuario_.usuarioCorreo), userInput.getUsuarioCorreo()),
+                    cb.equal(rt.get( Usuario_.usuarioClave), userInput.getUsuarioClave())
+            );
+            javax.persistence.TypedQuery<Usuario> q = getEntityManager().createQuery(cq);
+            Usuario user = q.getSingleResult();
+            res.addProperty("data", gson.toJson(user));
+        } catch (Throwable ex) {
+            res.addProperty("codigo", 400);
+            res.addProperty("mensaje", "operacion fallida");
+        }
+        return res.toString();
     }
     
 }

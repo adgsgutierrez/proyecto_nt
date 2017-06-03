@@ -187,7 +187,9 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.konrad.nt.entities.Usuario[ usuarioId=" + usuarioId + " ]";
+        return "Usuario{" + "usuarioId=" + usuarioId + ", usuarioCorreo=" + usuarioCorreo + ", usuarioClave=" + usuarioClave + ", usuarioAvatar=" + usuarioAvatar + ", usuarioNombre=" + usuarioNombre + ", usuarioCollection=" + usuarioCollection + ", usuarioCollection1=" + usuarioCollection1 + ", imagenCollection=" + imagenCollection + ", imagenCollection1=" + imagenCollection1 + ", tarjetaCollection=" + tarjetaCollection + '}';
     }
+
+   
     
 }

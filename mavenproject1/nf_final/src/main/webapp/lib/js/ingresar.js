@@ -1,11 +1,11 @@
 function ingresar() {
     var objectSend = {
         "usuario" : $("#i_correo").val(),
-        "clave": calcMD5($("#i_clave").val()),
+        "clave": calcMD5($("#i_clave").val())
     };
     if(objectSend.usuario !== '' && objectSend.clave !== ''){
         $.ajax({
-            url: "services/usuario/login",
+           url: "services/usuario/login",
             data: JSON.stringify(objectSend),
             contentType:'application/json ; charset=utf-8',
             dataType : 'json',

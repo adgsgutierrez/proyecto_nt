@@ -1,15 +1,15 @@
 //
 function registrarse(){
     var data = {
-        "nombre" : $("#i_usuario").val() ,
-        "usuario" : $("#i_correo").val() ,
-        "clave" : calcMD5($("#i_clave").val()),
-        "avatar" : ''
+        "usuarioNombre" : $("#i_usuario").val() ,
+        "usuarioCorreo" : $("#i_correo").val() ,
+        "usuarioClave" : calcMD5($("#i_clave").val()),
+        "usuarioAvatar" : ''
     };
-    if(data.nombre === '' || data.correo === '' || data.clave === ''){
+    if(data.usuarioNombre === '' || data.usuarioCorreo === '' || data.usuarioClave === ''){
         $("#error").html("Debes completar todos los campos para poder continuar.");
     }else{
-        if(data.clave !== calcMD5($("#i_clave_r").val())){
+        if(data.usuarioClave !== calcMD5($("#i_clave_r").val())){
             $("#error").html("Las claves que elegiste no coinciden.");
         }else{
             console.log(data);
@@ -24,8 +24,8 @@ function registrarse(){
                 },
                 success: function (response) {
                     console.log(response);
-                    if(response.codigo === 101){
-                        localStorage.setItem("usuario" , JSON.stringify(response.data));
+                    if(response.codigo === 200){
+                        localStorage.setItem("usuario" , response.data);
                         window.location.href = "in_session.html";
                     }else{
                         $("#error").html(response.mensaje);

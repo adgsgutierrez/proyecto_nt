@@ -203,7 +203,9 @@ public class Imagen implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.konrad.nt.entities.Imagen[ imagenId=" + imagenId + " ]";
+        return "Imagen{" + "imagenId=" + imagenId + ", imagenNombre=" + imagenNombre + ", imagenDescripcion=" + imagenDescripcion + ", imagenFecha=" + imagenFecha + ", imagenEstado=" + imagenEstado + ", imagenCosto=" + imagenCosto + ", imagenMin=" + imagenMin + ", imagenFull=" + imagenFull + ", usuarioCollection=" + usuarioCollection + ", compraCollection=" + compraCollection + ", usuarioUsuarioId=" + usuarioUsuarioId + '}';
     }
+
+
     
 }

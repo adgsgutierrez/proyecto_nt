@@ -6,6 +6,7 @@
 package co.com.konrad.nt.services;
 
 import co.com.konrad.nt.entities.Notificación;
+import com.google.gson.JsonObject;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -38,8 +39,18 @@ public class NotificaciónFacadeREST extends AbstractFacade<Notificación> {
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Notificación entity) {
-        super.create(entity);
+    public String create(Notificación entity)throws Exception {
+         JsonObject res = new JsonObject();
+        res.addProperty("codigo", 200);
+        res.addProperty("mensaje", "operacion exitosa");
+        try{
+            super.create(entity);
+        }catch(Throwable e){
+            res.addProperty("codigo", 400);
+            res.addProperty("mensaje", "operacion exitosa");
+            System.out.println(""+e.getMessage());
+        }
+        return res.toString();
     }
 
     @PUT

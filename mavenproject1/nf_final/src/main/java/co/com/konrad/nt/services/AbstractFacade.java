@@ -25,8 +25,13 @@ public abstract class AbstractFacade<T> {
 
     protected abstract EntityManager getEntityManager();
 
-    public void create(T entity) {
-        getEntityManager().persist(entity);
+    public String create(T entity) throws Exception{
+       try {
+            getEntityManager().persist(entity);
+        } catch (Throwable ex) {
+            System.out.println("Se toteo "+ ex.getMessage());
+        }
+        return "";
     }
 
     public void edit(T entity) {
