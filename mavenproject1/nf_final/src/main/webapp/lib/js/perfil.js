@@ -19,7 +19,7 @@ function guardar () {
 
 function agregar () {
     $('#cards').show();
-    $('#Agregar').show();
+    $('#agregar').show();
 }
 
 function verificarPass() {
